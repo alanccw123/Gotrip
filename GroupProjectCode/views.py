@@ -8,5 +8,5 @@ from django.http import HttpResponse
 from django.http import HttpResponse
 
 
-def index(request):
-    return HttpResponse("保佑大家IT这门课拿A ！！！  保佑大家IT这门课拿A ！！！  保佑大家IT这门课拿A ！！！ 保佑大家IT这门课拿A ！！！ ")
+def comment(request):
+    return render(request, 'website.html')
