@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css">
+</head>
+<body style="background-color: lightblue">
+<div style="width:100%;text-align:center" class="form-group">
+    <h1>Update orders</h1>
+<form method="post">
+    {% csrf_token %}
+    amount:
+    <input type="text" name="amount" placeholder="update amount" value="{{ row_object.amount }}">
+    time:
+    <input type="text" name="time" placeholder="update time" value="{{ row_object.time }}">
+    status:
+    <input type="text" name="status" placeholder="update status" value="{{ row_object.status }}">
+    price:
+    <input type="text" name="price" placeholder="update price" value="{{ row_object.Order_price}}">
+    <input class="btn btn-info" type="submit" value="submit">
+</form>
+</div>
+</body>
+</html>
