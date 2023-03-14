@@ -106,8 +106,6 @@
             border: 1px solid black;
             z-index: 500;
         }
-        .comment .visitor,
-        .comment .manager,
         .comment .user,
         .comment .user-comment
         {
@@ -240,33 +238,33 @@
 
 <div class="comment" >
     <!--这个是comment的标题-->
-    <div style="top: 60px;left:50px;position: relative;font-size: 30px;font-weight: bolder">COMMENTS</div>
+    <div style="top: 60px;left:50px;position: relative;font-size: 30px;font-weight: bolder">Reviews</div>
 
      <!--用户版本-->
      <div class="user">
          <div class="user-rate" >
               <img src="{% static 'img/user.png'%}" class="user-img" >
-{#             <label class="user-star">#}
-{#                 <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">1#}
-{#             </label>#}
-{#             <label class="user-star">#}
-{#                 <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 2#}
-{#             </label>#}
-{#             <label class="user-star">#}
-{#                 <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3"> 3#}
-{#             </label>#}
-{#             <label class="user-star">#}
-{#                 <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="4"> 4#}
-{#             </label>#}
-{#             <label class="user-star">#}
-{#                 <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="5"> 5#}
-{#             </label>#}
+             <label class="user-star">
+                 <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">1
+             </label>
+             <label class="user-star">
+                 <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 2
+             </label>
+             <label class="user-star">
+                 <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3"> 3
+             </label>
+             <label class="user-star">
+                 <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="4"> 4
+             </label>
+             <label class="user-star">
+                 <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="5"> 5
+             </label>
 
-             <button type="button" class="user-star" value="1">☆</button>
-             <button type="button" class="user-star" value="2">☆</button>
-             <button type="button" class="user-star" value="3">☆</button>
-             <button type="button" class="user-star" value="4">☆</button>
-             <button type="button" class="user-star" value="5">☆</button>
+{#             <button type="button" class="user-star" name="rate" value="1">☆</button>#}
+{#             <button type="button" class="user-star" name="rate" value="2">☆</button>#}
+{#             <button type="button" class="user-star" name="rate" value="3">☆</button>#}
+{#             <button type="button" class="user-star" name="rate" value="4">☆</button>#}
+{#             <button type="button" class="user-star" name="rate" value="5">☆</button>#}
          </div>
 {#        <img src="{% static 'img/user.png'%}" class="user-img" >#}
 {#        <button type="button" class="user-rate" >#}
@@ -286,77 +284,46 @@
 {#        </button>#}
 
          <div style="position: relative;width: 100%;height: 120px">
-             <textarea  type="text" class="text" id="text" name="content" placeholder="Add your own comment here"></textarea>
-             <button id="btn" type="button" style="position: relative;left: 40px;width:80px;height:30px;" >ADD</button>
+             <form method="post" action="website.html">
+                 <textarea  type="text" class="text" id="text" name="content" placeholder="Add your own comment here"></textarea>
+                 <input type="submit" value="提交">
+             </form>
+
+             <button id="btn" type="button" style="position: relative;left: 40px;width:80px;height:30px;" >
+                 <a href="/comment/add" style="text-decoration: none;color: black" >ADD</a>
+             </button>
+             <!-----这个方法如果是post那么页面get的时候会出错--->
+             <!-----但如果这个方法是get那么无法用提交的方式不同写方法提交到数据库再重定位回来---->
          </div>
 
 
 
 
      </div>
-
+    {% for r in review %}
     <div id="user-comment" class="user-comment">
+        <div style="position: relative;width: 100%;height: 120px">
+             <img src='{% static 'img/user.png'%}' style="position: relative;width: 40px;height: 40px;top: 30px;left: 15px;" >
+            <div hidden="hidden" name="id">{{ r.id }}</div>
+             <div style="position: relative;left: 100px">Rate:{{ r.score }} Star</div>
+             <div class="time" name="time" style="left: 300px;position: relative;bottom: 25px;">{{ r.date }}</div>
+             <p  name="text" style="border: 1px solid black;position: relative;width: 600px;height: 100px">{{ r.content }}</p>
+         </div>
+
     </div>
+    {% endfor %}
 
 
 
 
 
-
-
-{#    <!--游客版本-->#}
-{#    <div class="visitor">#}
-{#        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="user-img" viewBox="0 0 16 16">#}
-{#            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>#}
-{#        </svg>#}
-{#        <button type="button" class="user-rate">#}
-{#            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">#}
-{#                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>#}
-{#            </svg>#}
-{#        </button>#}
-{#        <button type="button" class="user-rate">#}
-{#            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">#}
-{#            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>#}
-{#            </svg>#}
-{#        </button>#}
-{#        <button type="button" class="user-rate">#}
-{#            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">#}
-{#            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>#}
-{#            </svg>#}
-{#        </button>#}
-{#        <input class="text" type="text" value="Goooooooooooooooooooooood!">#}
-{#    </div>#}
-{##}
-{#    <!--管理员版本-->#}
-{#     <div class="manager">#}
-{#         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="user-img" viewBox="0 0 16 16">#}
-{#            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>#}
-{#        </svg>#}
-{#        <button type="button" class="user-rate">#}
-{#            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">#}
-{#            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>#}
-{#            </svg>#}
-{#        </button>#}
-{#        <button type="button" class="user-rate">#}
-{#            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">#}
-{#            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>#}
-{#            </svg>#}
-{#        </button>#}
-{#        <button type="button" class="user-rate">#}
-{#            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">#}
-{#            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>#}
-{#            </svg>#}
-{#        </button>#}
-{#        <button type="button" style="position: relative;left: 600px;top: 100px;width: 80px;height: 30px">DELETE</button>#}
-{#        <input class="text" type="text" value="Goooooooooooooooooooooood!">#}
-{#    </div>#}
 
 </div>
 
 <script src="{% static 'js/jquery-3.6.3.min.js'%}"></script>
 <script src="{% static 'plugins/bootstrap/js/bootstrap.js' %}"></script>
 <script>
-    window.onload = function(){
+    window.onload = (function(){
         var btn = document.getElementById("btn");
         var textarea = document.getElementById("text");
         var commentArea = document.getElementById("user-comment");
@@ -366,7 +333,7 @@
                 alert('no blank comment');
             }else{
                 var div = document.createElement("div");
-                div.innerHTML = "<img src='{% static 'img/user.png'%}' class='user-img' >" + "<span class='time' style='left: 300px;top: 15px;position: relative;'></span>" + "<p class='text' style='border: 1px solid black;'>" + textarea.value + "</p>" ;
+                div.innerHTML = "<img src='{% static 'img/user.png'%}' class='user-img' >" + "<span class='time' name='time' style='left: 300px;top: 15px;position: relative;name='time'></span>" + "<p class='text' name='text' style='border: 1px solid black;'>" + {{ r.content }} + "</p>" ;
                 commentArea.insertBefore(div, commentArea.children[0]);
                 getTime();
                 textarea.value = ""
@@ -387,18 +354,21 @@
         function addZero(t){
             return t < 10? ('0' + t) : t;
         }
-    }
-    $(function (){
-        var star1 = "☆";
-        var star2 = "★";
+    })
 
-        $(".user-star").mouseenter(function (){
-            $(this).text(star2).prevAll().text(star2).end().nextAll().text(star1);
-        });
-        $(".user-star").mouseleave(function(){
-            $("li").text(star1);
-            $("#btn.current").text(star2).prevAll().text(star2).end().nextAll().text(star1);
-        });
+
+
+    {#$(function (){#}
+    {#    var star1 = "☆";#}
+    {#    var star2 = "★";#}
+    {##}
+    {#    $(".user-star").mouseenter(function (){#}
+    {#        $(this).text(star2).prevAll().text(star2).end().nextAll().text(star1);#}
+    {#    });#}
+    {#    $(".user-star").mouseleave(function(){#}
+    {#        $("li").text(star1);#}
+    {#        $("#btn.current").text(star2).prevAll().text(star2).end().nextAll().text(star1);#}
+    {#    });#}
         {#$(".user-star").click(function(){#}
         {#    if($(this).hasClass("current")){#}
         {#        $(this).removeAttr("class");#}
@@ -407,7 +377,7 @@
         {#    }#}
         {# }) #}
 
-    })
+
 
 
 

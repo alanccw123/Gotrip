@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from GroupProjectCode import views
+from Trip_review import views
 
 
 from django.contrib import admin
@@ -24,5 +25,11 @@ from django.urls import include, path
 urlpatterns = [
     path('GroupProjectCode/', include('GroupProjectCode.urls')),
     path('admin/', admin.site.urls),
-    path("comment/", views.comment),
+    # path("comment/", views.comment),
+    # path("delete/", views.delete),
+    # path("delete/d/", views.delete_d),
+    # path("comment/add/", views.comment_add),
+    path("review/", views.review),
+    path("review/add/", views.review_add),
+    path("review/delete/", views.review_delete)
 ]
