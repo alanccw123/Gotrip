@@ -1,19 +1,17 @@
-from datetime import datetime
+import datetime
+from django.http import HttpResponse
 from django.shortcuts import render
+from order.models import Order
 
 # Create your views here.
-
-from django.http import HttpResponse
-from GroupProjectCode.models import Order
-
-
 def index(request):
     # return HttpResponse("保佑大家IT这门课拿A ！！！  保佑大家IT这门课拿A ！！！  保佑大家IT这门课拿A ！！！ 保佑大家IT这门课拿A ！！！ ")
     return render(request, 'index.html')
 
 def order(request):
-    query_userid = 1
-    order_list = Order.objects.filter(user=query_userid)
+    user_id = 1
+    # user_id = request.user.id
+    order_list = Order.objects.filter(user=user_id)
     context_dict = {}
     context_dict['orders'] = order_list
     return render(request, 'order.html', context=context_dict)
@@ -21,13 +19,17 @@ def order(request):
 def makeorder(request):
     trip_id = request.GET['trip_id']
     amount = int(request.GET['amount'])
-    # user_id = request.user.id
+    user_id = request.user.id
     # price = Trip.objects.filter(id=trip_id)[0].price
-    user_id = 1
+    # user_id = 1
     price = 55
     total = price * amount
 
-    new_order = Order(amount=amount, time=datetime.now(),price=total,trip=trip_id, user=user_id)
+    new_order = Order(amount=amount, time=datetime.now(),price=total,trip_id=trip_id, user_id=user_id)
     new_order.save()
+
+    # trip = Trip.objects.get(pk=trip_id)
+    # trip.bookednum += amount
+    # trip.save()
 
     return HttpResponse('success')

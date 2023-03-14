@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from GroupProjectCode import views
+from order import views
 
 
 from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('GroupProjectCode/', include('GroupProjectCode.urls')),
+    path('order/', include('order.urls')),
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
 ]
