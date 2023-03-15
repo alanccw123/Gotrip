@@ -16,6 +16,7 @@ def order(request):
     context_dict['orders'] = order_list
     return render(request, 'order.html', context=context_dict)
 
+
 def makeorder(request):
     trip_id = request.GET['trip_id']
     amount = int(request.GET['amount'])
@@ -33,3 +34,13 @@ def makeorder(request):
     # trip.save()
 
     return HttpResponse('success')
+
+def cancelorder(request):
+    order_id = request.GET['order_id']
+    print(order_id)
+
+    order = Order.objects.get(id=order_id)
+    order.status = 'cancelled'
+    order.save()
+
+    return HttpResponse(order.status)

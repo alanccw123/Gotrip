@@ -13,7 +13,6 @@ class Order(models.Model):
     trip = models.CharField(max_length=128)
     user = models.IntegerField()
 
-    # todo: connect to User models
    
     
     def __str__(self): 
