@@ -68,12 +68,16 @@ $(function (){
                     console.log(res);
                   }
             })
+            //empty input trip number
+            document.getElementById('input-buy').value= ''
         })
     }
     function bindDetailEvent(){
         //get URL
         var params = new URLSearchParams(window.location.search);
+        //get Trip_id
         var trip_id = params.get('tripid');
+
         $("#trip_id").val(trip_id);
         var formData = {
                 tirp_id : $("#trip_id").val(),
@@ -103,6 +107,4 @@ $(function (){
             $('#trip_pic2').attr('src', pic[1])
             $('#trip_pic3').attr('src', pic[2])
         }
-
-
     }

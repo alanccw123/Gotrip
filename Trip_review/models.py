@@ -5,18 +5,18 @@ from django.db import models
 
 class Trip(models.Model):
     Trip_id = models.BigIntegerField(primary_key=True)
-    tripname = models.CharField(max_length=200)
-    introduction = models.CharField(max_length=200)
-    delete_status = models.BooleanField(default=0)
-    img_url = models.CharField(max_length=200)
-    booked_num = models.IntegerField(default=0)
-    Trip_price = models.IntegerField(default=0)
+    # tripname = models.CharField(max_length=200)
+    # introduction = models.CharField(max_length=200)
+    # delete_status = models.BooleanField(default=0)
+    # img_url = models.CharField(max_length=200, default=0)
+    # booked_num = models.IntegerField(default=0)
+    # Trip_price = models.IntegerField(default=0)
 
 
 class User(models.Model):
     User_id = models.BigIntegerField(primary_key=True)
-    username = models.CharField(max_length=50, unique=True)
-    password = models.IntegerField(default=0)
+    # username = models.CharField(max_length=50, unique=True)
+    # password = models.IntegerField(default=0)
     # leve = models
 
 

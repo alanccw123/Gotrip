@@ -26,13 +26,16 @@ def review_delete(request):
 @csrf_exempt
 def review_add(request):
     if request.method == 'POST':
+        # work only after getting Trip_id and User_id
         # data = request.POST
         # date = data.get('time')
         # rating = data.get('rating')
         # content = data.get('content')
         # trip_id = data.get('trip_id')
-        # Username = data.get('username')
-        # models.Review.objects.create(date=date, rating=rating, content=content, delete_status=0, Trip_id = trip_id, User_name = username)
+        # user_id = data.get('user_id')
+        # models.Review.objects.create(date=date, rating=rating, content=content, delete_status=0, Trip_id=trip_id, User_id=user_id)
+
+        # test
         print(request.POST)
         res = {'status': True}
         json_str = json.dumps(res)

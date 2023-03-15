@@ -24,11 +24,9 @@ from django.urls import include, path
 
 urlpatterns = [
     path('GroupProjectCode/', include('GroupProjectCode.urls')),
+    path('Commodities/', include('Commodities.urls')),
     path('admin/', admin.site.urls),
-    # path("comment/", views.comment),
-    # path("delete/", views.delete),
-    # path("delete/d/", views.delete_d),
-    # path("comment/add/", views.comment_add),
+    # Trip_review page
     path("review/", views.review),
     path("review/add/", views.review_add),
     path("review/delete/", views.review_delete)
