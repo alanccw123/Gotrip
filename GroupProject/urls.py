@@ -20,7 +20,8 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('', include('GroupProjectCode.urls')),
+    # Manage
+    path('', include('manage.urls')),
     path('admin/', admin.site.urls),
 
 ]

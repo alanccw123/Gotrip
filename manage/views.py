@@ -3,9 +3,9 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.http import HttpResponse
 
-from GroupProjectCode import models
-from GroupProjectCode.models import Trip
-from GroupProjectCode.models import Order
+from manage import models
+from manage.models import Trip
+from manage.models import Order
 
 
 def index(request):

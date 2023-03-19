@@ -44,14 +44,14 @@ class Migration(migrations.Migration):
                     "Trip_id",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="GroupProjectCode.trip",
+                        to="manage.trip",
                     ),
                 ),
                 (
                     "User_id",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="GroupProjectCode.user",
+                        to="manage.user",
                     ),
                 ),
             ],
@@ -69,7 +69,7 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         null=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="GroupProjectCode.trip",
+                        to="manage.trip",
                     ),
                 ),
                 (
@@ -77,7 +77,7 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         null=True,
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="GroupProjectCode.user",
+                        to="manage.user",
                     ),
                 ),
             ],
