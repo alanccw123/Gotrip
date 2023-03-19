@@ -226,16 +226,16 @@ table.table .avatar {
 <script>
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
-});
 
-$(document).ready(function(){
-	$(".ordertable").on("click", ".cancel",function() {
-        td = $(this);
+    $(".cancel").on("click", function() {
+        let clicked = $(this);
+        let orderid = $(this).attr('data-orderid');
         $.ajax({type: "GET", 
         url: "cancelorder", 
-        data: "order_id=" + td.attr('name'), 
+        data: "order_id=" + orderid, 
         success: function(message) { 
-            td.closest("tr").find('td').eq(4).text(message).attr('class', 'text-danger');       
+            clicked.closest("tr").find('td').eq(4).text(message).attr('class', 'text-danger');
+            clicked.hide();
         } 
 });
 });
@@ -251,13 +251,13 @@ $(document).ready(function(){
                     <div class="col-sm-4">
                         <h2>Order <b>Details</b></h2>
                     </div>
-                    <div class="col-sm-8">						
+                    <!-- <div class="col-sm-8">						
                         <a href="#" class="btn btn-primary"><i class="material-icons">&#xE863;</i> <span>Refresh List</span></a>
                         <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-            <div class="table-filter">
+            <!-- <div class="table-filter">
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="show-entries">
@@ -301,8 +301,8 @@ $(document).ready(function(){
                         <span class="filter-icon"><i class="fa fa-filter"></i></span>
                     </div>
                 </div>
-            </div>
-            <table class="table table-striped table-hover">
+            </div> -->
+            <table class="table table-striped table-hover ">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -314,7 +314,7 @@ $(document).ready(function(){
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody class="ordertable">
+                <tbody>
                     {%for order in orders%}
                     <tr>
                         <td> {{ forloop.counter }}</td>
@@ -327,7 +327,12 @@ $(document).ready(function(){
                         <td><span class="status text-success">&bull;</span> {{order.status}}</td>
                         {% endif %}
                         <td>${{order.price}}</td>
-                        <td class="cancel" name="{{order.id}}"><a href="#" class="view" title="Cancel" data-toggle="tooltip" ><i class="material-icons remove_circle">&#xe15c;</i></a></td>
+                        {% if order.status == 'cancelled' %}
+                        <td><button type="button" class="cancel btn btn-primary" data-orderid="{{order.id}}" style="display: none;">Cancel</button></td>
+                        {% else %}                       
+                        <td><button type="button" class="cancel btn btn-primary" data-orderid="{{order.id}}">Cancel</button></td>
+                        {% endif %}
+                        
                     </tr>
                     {%endfor%}
                 </tbody>

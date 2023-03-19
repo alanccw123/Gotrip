@@ -37,7 +37,6 @@ def makeorder(request):
 
 def cancelorder(request):
     order_id = request.GET['order_id']
-    print(order_id)
 
     order = Order.objects.get(id=order_id)
     order.status = 'cancelled'
