@@ -10,4 +10,5 @@ urlpatterns = [
     path('updateSingleTrip/', views.updateSingleTrip, name='updateSingleTrip'),
     path('getSingleTrip/', views.getSingleTrip, name='getSingleTrip'),
     path('getTop10Trips/', views.getTop10Trips, name='getTop10Trips'),
+    path('getAllTrips/', views.getAllTrips, name='getAllTrips'),
 ]
