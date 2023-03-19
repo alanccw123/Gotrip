@@ -24,18 +24,15 @@ from django.urls import include, path
 
 urlpatterns = [
 
-    #Trip
+    # Trip
     path('', include('Trip.urls')),
     # Manage
-    # path('', include('manage.urls')),
-
-
-    path('admin/', admin.site.urls),
+    path("manage/", include('manage.urls')),
     # Trip_review page
     path("review/", views.review),
     path("review/add/", views.review_add),
     path("review/delete/", views.review_delete)
 
-    #others
+    # others
 
 ]
