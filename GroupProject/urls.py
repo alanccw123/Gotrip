@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from GroupProjectCode import views
+from Trip_review import views
 
 
 from django.contrib import admin
@@ -25,4 +26,8 @@ urlpatterns = [
     path('GroupProjectCode/', include('GroupProjectCode.urls')),
     path('Commodities/', include('Commodities.urls')),
     path('admin/', admin.site.urls),
+    # Trip_review page
+    path("review/", views.review),
+    path("review/add/", views.review_add),
+    path("review/delete/", views.review_delete)
 ]
