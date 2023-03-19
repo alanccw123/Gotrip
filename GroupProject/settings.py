@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "manage",
     "Trip_review"
 ]
 
@@ -58,7 +59,7 @@ ROOT_URLCONF = "GroupProject.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'templates')]
+        "DIRS": [os.path.join(BASE_DIR, 'manage/templates')]
         ,
         "APP_DIRS": True,
         "OPTIONS": {
@@ -115,9 +116,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_DIR = os.path.join(BASE_DIR, 'static')  # changed
+STATIC_DIR = os.path.join(BASE_DIR, 'manage/static')  # changed
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# media_confige
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'static/media'
+

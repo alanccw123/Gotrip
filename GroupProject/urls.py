@@ -26,6 +26,8 @@ urlpatterns = [
 
     #Trip
     path('Trip/', include('Trip.urls')),
+    # Manage
+    path('', include('manage.urls')),
     path('admin/', admin.site.urls),
     # Trip_review page
     path("review/", views.review),
@@ -33,4 +35,5 @@ urlpatterns = [
     path("review/delete/", views.review_delete)
 
     #others
+
 ]

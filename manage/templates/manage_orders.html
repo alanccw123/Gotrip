@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage orders</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css">
+</head>
+<body style="background-color: lightblue">
+<div style="width:100%;text-align:center">
+<a class="btn btn-primary btn-lg active" href="/manage_addtrips/">Trip Management</a>
+<br><br>
+<h1>Order management</h1>
+<br>
+<h2>Total orders</h2>
+<br><br>
+<table border="1" align=center class="table table-hover" style="background-color: antiquewhite">
+    <thead>
+        <tr>
+            <th>Order_ID</th>
+            <th>amount</th>
+            <th>time</th>
+            <th>status</th>
+            <th>price</th>
+            <th>Trip_ID</th>
+            <th>User_ID</th>
+            <th>function1</th>
+            <th>function2</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for obj in data_list %}
+        <tr>
+            <td>{{ obj.Order_id }}</td>
+            <td>{{ obj.amount }}</td>
+            <td>{{ obj.time }}</td>
+            <td>{{ obj.status }}</td>
+            <td>{{ obj.Order_price }}</td>
+            <td>{{ obj.Trip_id }}</td>
+            <td>{{ obj.User_id }}</td>
+            <td><a class="btn btn-danger" href="/manage_orders/delete/?delete_Order_id={{ obj.Order_id }}">delete</a></td>
+            <td><a class="btn btn-success" href="/manage_orders/{{ obj.Order_id }}/update/">update</a></td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+</body>
+</html>
