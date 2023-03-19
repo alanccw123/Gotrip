@@ -5,7 +5,7 @@ from django.db import models
 
 class Trip(models.Model):
     #    ⅰ. id primary
-    trip_id = models.IntegerField(primary_key=True, verbose_name="商品唯一id")
+    trip_id = models.AutoField(primary_key=True, verbose_name="商品唯一id")
     # ⅱ. 商品名称
     trip_name = models.CharField(max_length=200)
     # ⅲ. 商品描述
