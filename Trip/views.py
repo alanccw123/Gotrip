@@ -130,7 +130,20 @@ def getTop10Trips(request):
 
 
 
+def getAllTrips(request):
+    if request.method == 'GET':
+        trips = Trip.objects.all()
 
+        # 将QuerySet对象序列化为JSON格式
+        json_data = serializers.serialize('json', trips)
+
+        # 将JSON数据转换为JSON对象
+        json_body = json.loads(json_data)
+
+        # 返回JSON响应
+        return JsonResponse({"status": "success", "data": json_body})
+    else:
+        return JsonResponse({"status": "error", "message": "Invalid request method"})
 
 
 
