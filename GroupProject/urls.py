@@ -16,13 +16,27 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from order import views
+from Trip_review import views
 
 
 from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('order/', include('order.urls')),
-    path('', views.index, name='index'),
+    
+
+    #Trip
+    path('', include('Trip.urls')),
+    # Manage
+    # path('', include('manage.urls')),
+
+
     path('admin/', admin.site.urls),
+    # Trip_review page
+    path("review/", views.review),
+    path("review/add/", views.review_add),
+    path("review/delete/", views.review_delete),
+
+    #others
+    path('order/', include('order.urls'))
 ]
