@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from order import views
 from Trip_review import views
 
 
@@ -23,6 +23,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    
 
     # Trip
     path('', include('Trip.urls')),
@@ -31,8 +32,8 @@ urlpatterns = [
     # Trip_review page
     path("review/", views.review),
     path("review/add/", views.review_add),
-    path("review/delete/", views.review_delete)
+    path("review/delete/", views.review_delete),
 
-    # others
-
+    #others
+    path('order/', include('order.urls'))
 ]
