@@ -31,4 +31,6 @@ urlpatterns = [
     path("review/", views.review),
     path("review/add/", views.review_add),
     path("review/delete/", views.review_delete)
+
+    #others
 ]
