@@ -49,9 +49,7 @@
     </div>
 </div>
 <div class="page">
-    <!-- Page Header--><a class="banner banner-top"
-                          href="https://www.templatemonster.com/intense-multipurpose-html-template.html"
-                          target="_blank"><img src="images/intense_02.jpg" alt=""/></a>
+    <!-- Page Header-->
     <header class="section page-header">
         <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
@@ -129,6 +127,11 @@
     </header>
 
 
+
+
+
+ {% block body_block %}
+ {% endblock %}
 
     <!-- Page Footer--><a class="banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html"
                           target="_blank"><img src="images/intense_big_02.jpg" alt=""/></a>
@@ -238,11 +241,6 @@
 </div>
 <!-- Global Mailform Output-->
 <div class="snackbars" id="form-output-global"></div>
-
- {% block body_block %}
- {% endblock %}
-
-
 <!-- Javascript-->
 <script src="{% static 'Trip/js/core.min.js' %}"></script>
 <script src="{% static 'Trip/js/script.js' %}"></script>
