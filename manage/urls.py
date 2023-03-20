@@ -3,6 +3,8 @@ from django.urls import path
 from . import views
 app_name = 'manage'
 
+app_name='manage'
+
 urlpatterns = [
     # index
     path('', views.manage_orders, name='index'),
