@@ -1,7 +1,7 @@
 from django.urls import path,re_path
 from sign_up import views
 
-app_name="sign_up"
+app_name = "sign_up"
 
 urlpatterns = [
     path('index/', views.index, name='index'),

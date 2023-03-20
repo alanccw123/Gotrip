@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your orders</title>
+    <title>Your trips</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -223,57 +223,37 @@ table.table .avatar {
 	font-size: 13px;
 }
 </style>
+
 </head>
-{% endblock %}
+    {% endblock %}
 
 {% block body_block %}
 <body>
-
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-4">
-                        <h2>Manage Orders</h2>
+                        <h2>Update trips</h2>
                     </div>
-                    <div class="col-sm-8">
-                        <a class="btn btn-primary" href="/manage/manage_trips/">Trip Management</a>
-                    </div>
+{#                    <div class="col-sm-8">#}
+{#                        <a class="btn btn-primary" href="/manage/manage_orders">Order Management</a>#}
+{#                    </div>#}
                 </div>
             </div>
-        <div> </div>
-<table border="1" align=center class="table table-striped table-hover" style="background-color: antiquewhite">
-    <thead>
-        <tr>
-            <th>Order_ID</th>
-            <th>amount</th>
-            <th>time</th>
-            <th>status</th>
-            <th>price(£)</th>
-            <th>Trip_ID</th>
-            <th>User_ID</th>
-            <th>function1</th>
-            <th>function2</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for obj in data_list %}
-        <tr>
-            <td>{{ obj.id }}</td>
-            <td>{{ obj.amount }}</td>
-            <td>{{ obj.time }}</td>
-            <td>{{ obj.status }}</td>
-            <td>{{ obj.price }}</td>
-            <td>{{ obj.trip_id }}</td>
-            <td>{{ obj.user_id}}</td>
-            <td><a class="btn btn-primary" href="/manage/manage_orders/delete/?delete_Order_id={{ obj.id }}">delete</a></td>
-            <td><a class="btn btn-primary" href="/manage/manage_orders/{{ obj.id }}/update/">update</a></td>
-
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<form method="post">
+    {% csrf_token %}
+    trip name:
+    <input type="text" name="trip_name" placeholder="update trip_name" value="{{ row_object.trip_name }}">
+    trip description:
+    <input type="text" name="trip_description" placeholder="update trip_description" value="{{ row_object.trip_description }}">
+    trip price(£):
+    <input type="text" name="trip_price" placeholder="update trip_price(£)" value="{{ row_object.trip_price }}">
+    trip logic delete status:
+    <input type="text" name="trip_logic_delete" placeholder="update trip_logic_delete" value="{{ row_object.trip_logic_delete}}">
+    <input class="btn btn-primary" type="submit" value="submit">
+</form>
 </div>
 </div>
 </div>

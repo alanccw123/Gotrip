@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your orders</title>
+    <title>Manage Trips</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -224,7 +224,7 @@ table.table .avatar {
 }
 </style>
 </head>
-{% endblock %}
+    {% endblock %}
 
 {% block body_block %}
 <body>
@@ -235,10 +235,11 @@ table.table .avatar {
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-4">
-                        <h2>Manage Orders</h2>
+                        <h2>Manage Trips</h2>
                     </div>
                     <div class="col-sm-8">
-                        <a class="btn btn-primary" href="/manage/manage_trips/">Trip Management</a>
+                        <a class="btn btn-primary" href="/manage/manage_orders/">Order Management</a>
+                        <a class="btn btn-primary" href="/manage/manage_addtrips/">add trips</a>
                     </div>
                 </div>
             </div>
@@ -246,13 +247,12 @@ table.table .avatar {
 <table border="1" align=center class="table table-striped table-hover" style="background-color: antiquewhite">
     <thead>
         <tr>
-            <th>Order_ID</th>
-            <th>amount</th>
-            <th>time</th>
-            <th>status</th>
-            <th>price(£)</th>
-            <th>Trip_ID</th>
-            <th>User_ID</th>
+            <th>trip ID</th>
+            <th>trip name</th>
+            <th>trip description</th>
+            <th>trip price(£)</th>
+            <th>trip booking number</th>
+            <th>trip logic delete</th>
             <th>function1</th>
             <th>function2</th>
         </tr>
@@ -260,15 +260,14 @@ table.table .avatar {
     <tbody>
     {% for obj in data_list %}
         <tr>
-            <td>{{ obj.id }}</td>
-            <td>{{ obj.amount }}</td>
-            <td>{{ obj.time }}</td>
-            <td>{{ obj.status }}</td>
-            <td>{{ obj.price }}</td>
             <td>{{ obj.trip_id }}</td>
-            <td>{{ obj.user_id}}</td>
-            <td><a class="btn btn-primary" href="/manage/manage_orders/delete/?delete_Order_id={{ obj.id }}">delete</a></td>
-            <td><a class="btn btn-primary" href="/manage/manage_orders/{{ obj.id }}/update/">update</a></td>
+            <td>{{ obj.trip_name }}</td>
+            <td>{{ obj.trip_description }}</td>
+            <td>{{ obj.trip_price }}</td>
+            <td>{{ obj.trip_num_bookings }}</td>
+            <td>{{ obj.trip_logic_delete}}</td>
+            <td><a class="btn btn-primary" href="/manage/manage_trips/delete/?delete_trip_id={{ obj.trip_id }}">delete</a></td>
+            <td><a class="btn btn-primary" href="/manage/manage_trips/{{ obj.trip_id }}/update/">update</a></td>
 
         </tr>
     {% endfor %}

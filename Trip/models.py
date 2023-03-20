@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 from django.db import models
 
+
 class Trip(models.Model):
     #    ⅰ. id primary
     trip_id = models.AutoField(primary_key=True, verbose_name="商品唯一id")

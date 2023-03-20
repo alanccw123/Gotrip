@@ -79,7 +79,7 @@ $(document).ready(function(){
                         {% else %}                       
                         <td><span class="status text-success">&bull;</span> {{order.status}}</td>
                         {% endif %}
-                        <td>${{order.price}}</td>
+                        <td>£{{order.price}}</td>
                         {% if order.status == 'cancelled' %}
                         <td><button type="button" class="cancel btn btn-primary" data-orderid="{{order.id}}" style="display: none;">Cancel</button></td>
                         {% else %}                       
