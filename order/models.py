@@ -1,5 +1,6 @@
 from django.db import models
-
+from Trip.models import Trip
+from django.contrib.auth.models import User
 # Create your models here.
 class Order(models.Model):
     
@@ -7,11 +8,8 @@ class Order(models.Model):
     time = models.DateTimeField()
     status = models.CharField(default='In process', max_length=128)
     price = models.IntegerField()
-    # trip_id = models.ForeignKey(Trip, on_delete=models.CASCADE)
-    # user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    trip = models.CharField(max_length=128)
-    user = models.IntegerField()
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         # Added for the testing chapter.

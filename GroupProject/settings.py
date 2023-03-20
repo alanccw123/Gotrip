@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "order",
     "manage",
-    "Trip_review"
+    "Trip_review",
+    "sign_up"
 ]
 
 MIDDLEWARE = [
@@ -116,7 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = "static/"
 STATIC_DIR = os.path.join(BASE_DIR, 'manage/static')  # changed
 
 # Default primary key field type
