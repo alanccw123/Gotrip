@@ -5,16 +5,19 @@ from Trip.models import Trip
 from order.models import Order
 from django.contrib.auth.decorators import login_required
 
+
 # Create your views here.
 
 # displaying all order for a given user
 # @login_required
+
 def order(request):
     user_id = request.user.id
     order_list = Order.objects.filter(user_id=user_id)
     context_dict = {}
     context_dict['orders'] = order_list
     return render(request, 'order.html', context=context_dict)
+
 
 # making a new order
 def makeorder(request):

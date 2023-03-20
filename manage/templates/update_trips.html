@@ -225,6 +225,9 @@ table.table .avatar {
 </style>
 
 </head>
+    {% endblock %}
+
+{% block body_block %}
 <body>
 <div class="container-xl">
     <div class="table-responsive">
@@ -241,13 +244,13 @@ table.table .avatar {
             </div>
 <form method="post">
     {% csrf_token %}
-    trip_name:
+    trip name:
     <input type="text" name="trip_name" placeholder="update trip_name" value="{{ row_object.trip_name }}">
-    trip_description:
+    trip description:
     <input type="text" name="trip_description" placeholder="update trip_description" value="{{ row_object.trip_description }}">
-    trip_price:
-    <input type="text" name="trip_price" placeholder="update trip_price" value="{{ row_object.trip_price }}">
-    trip_logic_delete:
+    trip price(£):
+    <input type="text" name="trip_price" placeholder="update trip_price(£)" value="{{ row_object.trip_price }}">
+    trip logic delete status:
     <input type="text" name="trip_logic_delete" placeholder="update trip_logic_delete" value="{{ row_object.trip_logic_delete}}">
     <input class="btn btn-primary" type="submit" value="submit">
 </form>

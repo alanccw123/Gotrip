@@ -225,6 +225,8 @@ table.table .avatar {
 </style>
 
 </head>
+{% endblock %}
+{% block body_block %}
 <body>
 <div class="container-xl">
     <div class="table-responsive">
@@ -244,7 +246,7 @@ table.table .avatar {
     {% csrf_token %}
     <input type="post" name="tripname" placeholder="input trip name">
     <input type="post" name="introduction" placeholder="input trip introduction">
-    <input type="post" name="Trip_price" placeholder="input trip price">
+    <input type="post" name="Trip_price" placeholder="input trip price(£)">
     <input type="file" name="image_url" value="upload image">
     <input type="submit" value="submit" class="btn btn-primary">
 </form>

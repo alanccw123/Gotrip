@@ -225,6 +225,9 @@ table.table .avatar {
 </style>
 
 </head>
+    {% endblock %}
+
+{% block body_block %}
 <body>
 <div class="container-xl">
     <div class="table-responsive">
@@ -243,12 +246,12 @@ table.table .avatar {
     {% csrf_token %}
     amount:
     <input type="text" name="amount" placeholder="update amount" value="{{ row_object.amount }}">
-    time:
+    time(yyyy-mm-dd hh:mm):
     <input type="text" name="time" placeholder="update time" value="{{ row_object.time }}">
     status:
     <input type="text" name="status" placeholder="update status" value="{{ row_object.status }}">
     price:
-    <input type="text" name="price" placeholder="update price" value="{{ row_object.price}}">
+    <input type="text" name="price" placeholder="update price(£)" value="{{ row_object.price}}">
     <input class="btn btn-primary" type="submit" value="submit">
 </form>
 </div>
