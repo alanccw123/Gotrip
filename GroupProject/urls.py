@@ -34,6 +34,6 @@ urlpatterns = [
     path("review/add/", views.review_add),
     path("review/delete/", views.review_delete),
 
-    #others
+    # order
     path('order/', include('order.urls'))
 ]
