@@ -13,7 +13,7 @@ class Trip(models.Model):
     # ⅳ. 商品的价格
     trip_price = models.IntegerField(default=0)
     # ⅴ. 商品图片相对目录链接  "/src/source/imgsource/213123.jpg"
-    trip_url = models.CharField(max_length=200)
+    trip_url = models.ImageField(upload_to='imgurl')
     # ⅵ. 被预订的次数
     trip_num_bookings = models.IntegerField(default=0)
     # ⅶ. 逻辑删除 is_delete = false   false代表没有删除
