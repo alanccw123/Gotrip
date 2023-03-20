@@ -110,14 +110,25 @@
                             </ul>
                             <!-- RD Navbar Nav-->
                             <ul class="rd-navbar-nav">
-                                <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Home</a>
+                                <li class="rd-nav-item active"><a class="rd-nav-link" href="{% url 'Trip:index' %}">Home</a>
                                 </li>
-                                <li class="rd-nav-item"><a class="rd-nav-link" href="about.html">About</a>
+                                {% if user.is_authenticated %}
+                                <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'sign_up:logout' %}?next=/sign_up/">Logout</a>
                                 </li>
-                                <li class="rd-nav-item"><a class="rd-nav-link" href="typography.html">Typography</a>
+                                <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'order:showorder' %}">View Ordersr</a>
                                 </li>
-                                <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Contact Us</a>
+                                 {% else %}
+                                <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'sign_up:register' %}">Register Here</a>
                                 </li>
+                                 <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'sign_up:login' %}">Login</a>
+                                </li>
+                                 {% endif %}
+                                {% if user.is_superuser %}
+  <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'manage:index' %}">Upload Trip</a>
+                                </li>
+ {% endif %}
+                                
+                                
                             </ul>
                         </div>
                     </div>
