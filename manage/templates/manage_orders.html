@@ -7,7 +7,7 @@
 </head>
 <body style="background-color: lightblue">
 <div style="width:100%;text-align:center">
-<a class="btn btn-primary btn-lg active" href="/manage_addtrips/">Trip Management</a>
+<a class="btn btn-primary btn-lg active" href="/manage/manage_addtrips/">Trip Management</a>
 <br><br>
 <h1>Order management</h1>
 <br>
@@ -37,8 +37,8 @@
             <td>{{ obj.Order_price }}</td>
             <td>{{ obj.Trip_id }}</td>
             <td>{{ obj.User_id }}</td>
-            <td><a class="btn btn-danger" href="/manage_orders/delete/?delete_Order_id={{ obj.Order_id }}">delete</a></td>
-            <td><a class="btn btn-success" href="/manage_orders/{{ obj.Order_id }}/update/">update</a></td>
+            <td><a class="btn btn-danger" href="/manage/manage_orders/delete/?delete_Order_id={{ obj.Order_id }}">delete</a></td>
+            <td><a class="btn btn-success" href="/manage/manage_orders/{{ obj.Order_id }}/update/">update</a></td>
 
         </tr>
     {% endfor %}
