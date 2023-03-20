@@ -14,7 +14,6 @@
  <meta name="generator"
  content="Jekyll v3.8.5">
 <title>
-sign_up- {% block title_block %}How to Tango with Django!{% endblock %}
  </title>
  <!-- Bootstrap core CSS -->
  <link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css"
@@ -27,7 +26,6 @@ sign_up- {% block title_block %}How to Tango with Django!{% endblock %}
  <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark p-0">
  <a class="navbar-brand p-2" href="{% url 'index' %}">Trips</a>
-
  <button class="navbar-toggler" type="button" data-toggle="collapse"
 data-target="#navbarCollapse" aria-controls="navbarCollapse"
  aria-expanded="false" aria-label="Toggle navigation">
@@ -58,24 +56,14 @@ data-target="#navbarCollapse" aria-controls="navbarCollapse"
  href="{% url 'index' %}?next=/sign_up/">Upload Trip</a></li>
  {% endif %}
  </ul>
- </div>
-</nav>
- </header>
-<div class="container-fluid">
-<div class="row">
- <nav class="col-md-2 d-none d-md-block bg-light sidebar">
- <div class="sidebar-sticky">
 
- </div>
+
+ 
  </nav>
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
  {% block body_block %}
  {% endblock %}
-<footer>
- <p class="float-right"><a href="#">Back to top</a></p>
- <p>&copy; 2020 Tango With Django 2 &middot; <a href="#">Privacy</a> &middot;
-<a href="#">Terms</a></p>
-</footer>
+
  </main>
  </div>
  </div>

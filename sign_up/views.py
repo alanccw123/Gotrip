@@ -1,9 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from sign_up.models import Category
-from sign_up.models import Page
 from sign_up.forms import UserForm, UserProfileForm
-from sign_up.forms import CategoryForm
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
@@ -13,12 +10,8 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    category_list = Category.objects.order_by('-likes')[:5]
-    context_dict = {}
-    context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
-    context_dict['categories'] = category_list
  
-    return render(request, 'index.html', context=context_dict)
+    return render(request, 'index.html')
 
 
 def register(request):
