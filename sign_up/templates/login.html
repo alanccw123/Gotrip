@@ -18,7 +18,7 @@
           <h1 class="text-center">Login</h1>
         </div>
         <div class="card-body">
-          <form id="login_form" method="post" action="{% url 'login' %}">
+          <form id="login_form" method="post" action="{% url 'sign_up:login' %}">
             {% csrf_token %}
             <div class="form-group">
               <label for="username">Username</label>

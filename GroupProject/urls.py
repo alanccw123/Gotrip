@@ -23,7 +23,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    
+    path('admin/', admin.site.urls),
 
     # Trip
     path('', include('Trip.urls')),
@@ -35,5 +35,6 @@ urlpatterns = [
     path("review/delete/", views.review_delete),
 
     # order
-    path('order/', include('order.urls'))
+    path('order/', include('order.urls')),
+    path('sign_up/', include('sign_up.urls'))
 ]

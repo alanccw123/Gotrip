@@ -52,9 +52,9 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return redirect(reverse('index'))
+                return redirect(reverse('Trip:index'))
             else:
-                return HttpResponse("Your  account is disabled.")
+                return HttpResponse("Your account is disabled.")
         else:
             print(f"Invalid login details: {username}, {password}")
             return HttpResponse("Invalid login details supplied.") 
@@ -63,4 +63,4 @@ def user_login(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return redirect(reverse('index'))
+    return redirect(reverse('Trip:index'))

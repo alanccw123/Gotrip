@@ -6,7 +6,7 @@ $(document).ready(function(){
         let clicked = $(this);
         let orderid = $(this).attr('data-orderid');
         $.ajax({type: "GET", 
-        url: "{% url 'order:cancelorder' %}", 
+        url: "cancelorder",
         data: "order_id=" + orderid, 
         success: function(message) { 
             clicked.closest("tr").find('td').eq(4).text(message).attr('class', 'text-danger');

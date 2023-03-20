@@ -1,5 +1,9 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
+
+{% block head_block %}
+
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -33,7 +37,13 @@ $(document).ready(function(){
 });
 });
 </script> -->
+
+
 </head>
+{% endblock %}
+
+{% block body_block %}
+<body>
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -84,4 +94,5 @@ $(document).ready(function(){
     </div>        
 </div>     
 </body>
+{%endblock%}
 </html>
