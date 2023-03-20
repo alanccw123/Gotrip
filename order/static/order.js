@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 
+    // event listener to trigger ajax call to cancel an order
     $(".cancel").on("click", function() {
         let clicked = $(this);
         let orderid = $(this).attr('data-orderid');

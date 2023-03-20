@@ -61,7 +61,7 @@ $(document).ready(function(){
                     {%for order in orders%}
                     <tr>
                         <td> {{ forloop.counter }}</td>
-                        <td>{{order.trip}}</td>
+                        <td>{{order.trip.trip_name}}</td>
                         <td>{{order.amount}}</td>
                         <td>{{order.time}}</td>
                         {% if order.status == 'cancelled' %}
