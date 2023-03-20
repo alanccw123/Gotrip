@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "order",
     "manage",
-    "Trip_review"
+    "Trip_review",
+    "sign_up"
 ]
 
 MIDDLEWARE = [

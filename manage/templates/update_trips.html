@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your orders</title>
+    <title>Your trips</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -232,39 +232,28 @@ table.table .avatar {
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-4">
-                        <h2>Add <b>Trips</b></h2>
+                        <h2>Update <b>trips</b></h2>
                     </div>
-                    <div class="col-sm-8">
-                        <a class="btn btn-primary" href="/manage/manage_orders">Order Management</a>
-                    </div>
+{#                    <div class="col-sm-8">#}
+{#                        <a class="btn btn-primary" href="/manage/manage_orders">Order Management</a>#}
+{#                    </div>#}
                 </div>
             </div>
-
-<form enctype='multipart/form-data' method="post">
+<form method="post">
     {% csrf_token %}
-    <input type="post" name="tripname" placeholder="input trip name">
-    <input type="post" name="introduction" placeholder="input trip introduction">
-    <input type="post" name="Trip_price" placeholder="input trip price">
-    <input type="file" name="image_url" value="upload image">
-    <input type="submit" value="submit" class="btn btn-primary">
+    trip_name:
+    <input type="text" name="trip_name" placeholder="update trip_name" value="{{ row_object.trip_name }}">
+    trip_description:
+    <input type="text" name="trip_description" placeholder="update trip_description" value="{{ row_object.trip_description }}">
+    trip_price:
+    <input type="text" name="trip_price" placeholder="update trip_price" value="{{ row_object.trip_price }}">
+    trip_logic_delete:
+    <input type="text" name="trip_logic_delete" placeholder="update trip_logic_delete" value="{{ row_object.trip_logic_delete}}">
+    <input class="btn btn-primary" type="submit" value="submit">
 </form>
-
 </div>
 </div>
 </div>
-
-{#<form method="post" enctype="multipart/form-data" action="{% url 'add' %}">#}
-{##}
-{#    <div class="form-group">#}
-{#         <label for="icon_input">图像</label>#}
-{#         <input name="img" type="file" id="icon_input">#}
-{#     </div>#}
-{##}
-{#     {% csrf_token %}#}
-{#     <button type="submit" class="btn btn-success btn-block">提交</button>#}
-{##}
-{# </form>#}
-
 </body>
 {%endblock%}
 </html>

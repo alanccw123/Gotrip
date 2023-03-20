@@ -1,23 +1,25 @@
 from django.db import models
+from Trip.models import Trip
+from django.contrib.auth.models import User
 
 
 # Create your models here.
-
-class Trip(models.Model):
-    Trip_id = models.BigIntegerField(primary_key=True)
-    # tripname = models.CharField(max_length=200)
-    # introduction = models.CharField(max_length=200)
-    # delete_status = models.BooleanField(default=0)
-    # img_url = models.CharField(max_length=200, default=0)
-    # booked_num = models.IntegerField(default=0)
-    # Trip_price = models.IntegerField(default=0)
-
-
-class User(models.Model):
-    User_id = models.BigIntegerField(primary_key=True)
-    # username = models.CharField(max_length=50, unique=True)
-    # password = models.IntegerField(default=0)
-    # leve = models
+#
+# class Trip(models.Model):
+#     Trip_id = models.BigIntegerField(primary_key=True)
+#     # tripname = models.CharField(max_length=200)
+#     # introduction = models.CharField(max_length=200)
+#     # delete_status = models.BooleanField(default=0)
+#     # img_url = models.CharField(max_length=200, default=0)
+#     # booked_num = models.IntegerField(default=0)
+#     # Trip_price = models.IntegerField(default=0)
+#
+#
+# class User(models.Model):
+#     User_id = models.BigIntegerField(primary_key=True)
+#     # username = models.CharField(max_length=50, unique=True)
+#     # password = models.IntegerField(default=0)
+#     # leve = models
 
 
 class Review(models.Model):
@@ -30,7 +32,7 @@ class Review(models.Model):
         (1, "deleted"),
     )
     delete_status = models.SmallIntegerField(choices=delete_choices)
-    Trip_id = models.ForeignKey(Trip, on_delete=models.CASCADE)
-    User_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    Trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    User = models.ForeignKey(User, on_delete=models.CASCADE)
 
 

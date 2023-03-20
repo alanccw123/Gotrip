@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your orders</title>
+    <title>Manage Trips</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -223,48 +223,55 @@ table.table .avatar {
 	font-size: 13px;
 }
 </style>
-
-</head>
 <body>
+
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-4">
-                        <h2>Add <b>Trips</b></h2>
+                        <h2>Manage <b>Trips</b></h2>
                     </div>
                     <div class="col-sm-8">
-                        <a class="btn btn-primary" href="/manage/manage_orders">Order Management</a>
+                        <a class="btn btn-primary" href="/manage/manage_orders/">Order Management</a>
+                        <a class="btn btn-primary" href="/manage/manage_addtrips/">add trips</a>
                     </div>
                 </div>
             </div>
+        <div> </div>
+<table border="1" align=center class="table table-striped table-hover" style="background-color: antiquewhite">
+    <thead>
+        <tr>
+            <th>trip_ID</th>
+            <th>trip_name</th>
+            <th>trip_description</th>
+            <th>trip_price</th>
+            <th>trip_num_bookings</th>
+            <th>trip_logic_delete</th>
+            <th>function1</th>
+            <th>function2</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for obj in data_list %}
+        <tr>
+            <td>{{ obj.trip_id }}</td>
+            <td>{{ obj.trip_name }}</td>
+            <td>{{ obj.trip_description }}</td>
+            <td>{{ obj.trip_price }}</td>
+            <td>{{ obj.trip_num_bookings }}</td>
+            <td>{{ obj.trip_logic_delete}}</td>
+            <td><a class="btn btn-primary" href="/manage/manage_trips/delete/?delete_trip_id={{ obj.trip_id }}">delete</a></td>
+            <td><a class="btn btn-primary" href="/manage/manage_trips/{{ obj.trip_id }}/update/">update</a></td>
 
-<form enctype='multipart/form-data' method="post">
-    {% csrf_token %}
-    <input type="post" name="tripname" placeholder="input trip name">
-    <input type="post" name="introduction" placeholder="input trip introduction">
-    <input type="post" name="Trip_price" placeholder="input trip price">
-    <input type="file" name="image_url" value="upload image">
-    <input type="submit" value="submit" class="btn btn-primary">
-</form>
-
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 </div>
 </div>
 </div>
-
-{#<form method="post" enctype="multipart/form-data" action="{% url 'add' %}">#}
-{##}
-{#    <div class="form-group">#}
-{#         <label for="icon_input">图像</label>#}
-{#         <input name="img" type="file" id="icon_input">#}
-{#     </div>#}
-{##}
-{#     {% csrf_token %}#}
-{#     <button type="submit" class="btn btn-success btn-block">提交</button>#}
-{##}
-{# </form>#}
-
 </body>
 {%endblock%}
 </html>

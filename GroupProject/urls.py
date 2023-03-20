@@ -35,5 +35,6 @@ urlpatterns = [
     path("review/delete/", views.review_delete),
 
     #others
-    path('order/', include('order.urls'))
+    path('order/', include('order.urls')),
+    path('sign_up/', include('sign_up.urls'))
 ]
